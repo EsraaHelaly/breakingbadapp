@@ -28,3 +28,12 @@ class SearchCharacterError extends CharactersState {
 
 
 
+class CharacterQuotesLoading extends CharactersState {}
+
+class CharacterQuotesSuccess extends CharactersState {}
+
+class CharacterQuotesError extends CharactersState {
+  final String error;
+  CharacterQuotesError({this.error});
+
+}

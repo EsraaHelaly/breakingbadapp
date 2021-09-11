@@ -1,5 +1,5 @@
 import 'package:breakingbadapp/core/services/dio_helper.dart';
-import 'package:breakingbadapp/view/screens/home_screen.dart';
+import 'package:breakingbadapp/view/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -29,6 +29,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const HomeScreen();
+    return const SplashScreen();
   }
 }

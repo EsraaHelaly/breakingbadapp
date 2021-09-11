@@ -1,10 +1,15 @@
 import 'package:breakingbadapp/core/cubit/characters_cubit.dart';
 import 'package:breakingbadapp/core/cubit/characters_state.dart';
+import 'package:breakingbadapp/view/componants/build_no_internet_widget.dart';
+import 'package:breakingbadapp/view/widgets/build_appbar_actions.dart';
+import 'package:breakingbadapp/view/widgets/build_char_gridview.dart';
 
-import 'package:breakingbadapp/view/widgets/build_character_item.dart';
+import 'package:breakingbadapp/view/widgets/build_search_text_filed.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_offline/flutter_offline.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
@@ -20,32 +25,36 @@ class HomeScreen extends StatelessWidget {
         builder: (context, state) {
           CharactersCubit cubit = CharactersCubit.get(context);
           return Scaffold(
-              appBar: AppBar(
-                title: const Text('characters'),
-              ),
-              body: state is! CharactersLoading
-                  ? SingleChildScrollView(
-                      child: Container(
-                        color: Colors.grey,
-                        child: GridView.count(
-                          shrinkWrap: true,
-                          physics: const BouncingScrollPhysics(),
-                          crossAxisCount: 2,
-                          childAspectRatio: 1 / 1.5,
-                          crossAxisSpacing: 1,
-                          mainAxisSpacing: 1,
-                          children: List.generate(
-                            cubit.characters.length,
-                            (index) => BuildCharacterItem(
-                                cubit: cubit.characters[index]),
-                          ),
-                        ),
-                      ),
-                    )
-                  : Center(
-                      child: Image.asset(
-                      'images/loading.gif',
-                    )));
+            backgroundColor:
+                state is CharactersLoading ? Colors.white : Colors.grey,
+            appBar: AppBar(
+                backgroundColor: Colors.purple[200],
+                title: cubit.isSearch
+                    ? BuildSearchTextField(cubit: cubit)
+                    : const Text('Characters',
+                        style: TextStyle(color: Colors.black, fontSize: 18)),
+                actions: [
+                  BuildAppBarActions(cubit: cubit),
+                ]),
+            body: OfflineBuilder(
+                connectivityBuilder: (
+                  BuildContext context,
+                  ConnectivityResult connectivity,
+                  Widget child,
+                ) {
+                  final bool connected =
+                      connectivity != ConnectivityResult.none;
+
+                  if (connected) {
+                    return state is! CharactersLoading
+                        ? BuildCharactersGridView(cubit: cubit)
+                        : Center(child: Image.asset('images/loading.gif'));
+                  } else {
+                    return const BuildNoInternetWidget();
+                  }
+                },
+                child: const Center(child: CircularProgressIndicator())),
+          );
         },
       ),
     );
