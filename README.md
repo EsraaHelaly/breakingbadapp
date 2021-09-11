@@ -1,16 +1,22 @@
-# breakingbadapp
+# breakingbadapp 
 
 A new Flutter project.
 
-## Getting Started
+# Bloc 
+# Dio
+# Api https://www.breakingbadapi.com/api/
+# Splash Screen
+![Screenshot_2021-09-11-14-18-01-01 1](https://user-images.githubusercontent.com/47637259/132947757-acb8eef6-7ff3-4761-9d03-53728a637a16.jpg)
+# Characters Screen
 
-This project is a starting point for a Flutter application.
+![Screenshot_2021-09-11-14-00-46-49 1](https://user-images.githubusercontent.com/47637259/132947808-84da1ed1-fd33-476a-a017-35bcac9bad1e.jpg)
 
-A few resources to get you started if this is your first Flutter project:
+# Search Screen
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+![Screenshot_2021-09-11-14-01-44-41 1](https://user-images.githubusercontent.com/47637259/132947797-dd42bb5a-93c5-499e-a572-eb6fd6c71695.jpg)
+# Details Screen
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Screenshot_2021-09-11-14-00-53-53 1](https://user-images.githubusercontent.com/47637259/132947801-48d4d007-99d2-48b2-88d9-414d276fcc84.jpg)
+ 
+
+
