@@ -2,8 +2,8 @@
 
 A new Flutter project.
 
-# Bloc 
-# Dio
+Bloc 
+Dio
 # Api https://www.breakingbadapi.com/api/
 # Splash Screen
 ![Screenshot_2021-09-11-14-18-01-01 1](https://user-images.githubusercontent.com/47637259/132947757-acb8eef6-7ff3-4761-9d03-53728a637a16.jpg)
